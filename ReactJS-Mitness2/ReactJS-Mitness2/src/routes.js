@@ -66,6 +66,7 @@ const PointConversion = React.lazy(() =>
 );
 const User = React.lazy(() => import("./views/users/User"));
 const Userrs = React.lazy(() => import("./views/base/Instructor/Users"));
+// const CreateCustomer = React.lazy(() => import("./views/users/CreateCustomer"));
 const Userr = React.lazy(() => import("./views/base/Instructor/User"));
 const Catagory = React.lazy(() => import("./views/base/catagory/Users"));
 const Catagoryy = React.lazy(() => import("./views/base/catagory/User"));
@@ -88,8 +89,10 @@ const VideoListing = React.lazy(() => import("./views/base/Videolisting/User"));
 const Filterings = React.lazy(() => import("./views/base/Filtering/Users"));
 const Filtering = React.lazy(() => import("./views/base//Filtering/User"));
 
-const Login = React.lazy(() => import("./componets/login.componet"));
-const Loginn = React.lazy(() => import("./componets/trainerlogin.componet"));
+const CreateCustomer = React.lazy(() => import("./componets/login.componet"));
+const CreateTrainer = React.lazy(() =>
+  import("./componets/trainerlogin.componet")
+);
 const VideoLisgs = React.lazy(() => import("./views/base/VideoListingg/Users"));
 const VideoLisg = React.lazy(() => import("./views/base/VideoListingg/User"));
 const Uppercomponet = React.lazy(() =>
@@ -226,6 +229,12 @@ const routes = [
   { path: "/notifications/toaster", name: "Toaster", component: Toaster },
   { path: "/widgets", name: "Widgets", component: Widgets },
   { path: "/users", exact: true, name: "Users", component: Users },
+  // {
+  //   path: "/CreateCustomer",
+  //   exact: true,
+  //   name: "CreateCustomer",
+  //   component: CreateCustomer,
+  // },
   {
     path: "/BlockUsers",
     exact: true,
@@ -315,8 +324,13 @@ const routes = [
     name: "Filtering",
     component: Filtering,
   },
-  { path: "/welcome", exact: true, name: "NewUser", component: Login },
-  { path: "/trainer", exact: true, name: "NewTrainer", component: Loginn },
+  { path: "/welcome", exact: true, name: "NewUser", component: CreateCustomer },
+  {
+    path: "/trainer",
+    exact: true,
+    name: "NewTrainer",
+    component: CreateTrainer,
+  },
   {
     path: "/VideoListingg",
     exact: true,

@@ -174,62 +174,53 @@ export default class CustomersList extends Component {
 
   
     return (
-      
       <div>
-        
         <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <div style={{ display: "flex" }}>
+                <div style={{ width: "80%" }}>
+                  <h4>
+                    <b>Trainer</b>
+                  </h4>
+                </div>
+                <div style={{ marginTop: "5px" }}>
+                  <form onSubmit={this.onSubmit}>
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        required
+                        className="form-control"
+                        value={this.state.firstname}
+                        onChange={this.onChangefirstname}
+                      />
+                      <div className="input-group-apppend">
+                        <button className="btn btn-secondary" type="submit">
+                          <i className="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
 
-
-
-<div class="row">
-  <div class="col-md">
-
-             <div style={{display:"flex"}}>
-    <div style={{width:"80%"}}><h4><b>Trainer</b></h4></div>
-    <div style={{marginTop:"5px"}}>
-    <form onSubmit={this.onSubmit}>
-      <div className="input-group"> 
-          
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.firstname}
-              onChange={this.onChangefirstname}
-              />
-              <div className="input-group-apppend">
-              <button className="btn btn-secondary" type="submit">
-              <i className="fa fa-search"></i>
-              </button>
+                {/* <div style={{width:"9%"}}><Link to="/trainer" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div> */}
+                <div style={{ width: "22%" }}>
+                  <button
+                    style={{ height: "25", marginTop: "4px", marginLeft: "30px" }}
+                    className="btn btn-danger "
+                    onClick={() => {
+                      this.deleteCustomerByIds();
+                    }}
+                  >
+                    <DeleteIcon />
+                  </button>
+                </div>
               </div>
-        </div>
-        </form>
-        
-        
-        
-
-        
-        </div>
-    
-    <div style={{width:"9%"}}><Link to="/trainer" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div>
-    <div style={{width:"22%"}}  >
-    <button style={{height:"25",marginTop:"8px"}}
-        className="btn btn-danger "
-        onClick={() => {
-          this.deleteCustomerByIds();
-        }}
-      >
-    <DeleteIcon/>
-      </button>
-    </div>
-</div>
-        <div style={{overflowX:"scroll",overflowY:"scroll"}}>
-        
-          
-      
-        <table className="table" style={{border:"1px double grey"}}>
-          <thead className="thead-light">
-            <tr>
-            {/* <th>
+              <div style={{ overflowX: "scroll", overflowY: "scroll" }}>
+                <table className="table" style={{ border: "1px double grey" }}>
+                  <thead className="thead-light">
+                    <tr>
+                      {/* <th>
             
               
               <input
@@ -245,38 +236,90 @@ export default class CustomersList extends Component {
                 }}
               />
             </th> */}
-            <th style={{border:"1px double white",width:"100px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Delete</th>
-              <th style={{border:"1px double white",width:"150px" ,backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>First Name</th>
-              <th style={{border:"1px double white",width:"100px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Last Name</th>
-              <th style={{border:"1px double white",width:"150px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Email</th>
-              {/* <th style={{border:"3px double green"}}>Role</th> */}
-              <th style={{border:"1px double white",width:"30px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Gender</th>
-              {/* <th style={{border:"3px double green"}}>Weight</th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "100px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Delete
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "150px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        First Name
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "100px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Last Name
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "150px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Email
+                      </th>
+                      {/* <th style={{border:"3px double green"}}>Role</th> */}
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "30px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Gender
+                      </th>
+                      {/* <th style={{border:"3px double green"}}>Weight</th>
               <th style={{border:"3px double green"}}>Height</th>
               <th style={{border:"3px double green"}}>Address</th>
               <th style={{border:"3px double green"}}>Current Plan</th>
               <th style={{border:"3px double green"}}>Next Renew Date</th>
               <th style={{border:"3px double green"}}>Number Of Exercises</th>
               <th style={{border:"3px double green"}}>Time Duration All Exercises</th>
-              <th style={{border:"3px double green"}}>Total Calories Burnt</th> */} 
-              <th style={{border:"1px double white",width:"70px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Phone Number</th>
-              
-           
-            </tr>
-            
-          </thead>
-          <tbody>
-            { this.customerList() }
-          </tbody>
-         
-        </table>
-     
+              <th style={{border:"3px double green"}}>Total Calories Burnt</th> */}
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "70px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Phone Number
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>{this.customerList()}</tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-        
       </div>
-    )
+    );
   }
 }

@@ -33,8 +33,18 @@ const _nav = [
       },
       {
         _tag: "CSidebarNavItem",
+        name: "Create Customer",
+        to: "/welcome",
+      },
+      {
+        _tag: "CSidebarNavItem",
         name: "Trainers",
         to: "/userrs",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Create Trainer",
+        to: "/trainer",
       },
     ],
   },
@@ -60,6 +70,11 @@ const _nav = [
             _tag: "CSidebarNavItem",
             name: "Programs",
             to: "/Videolisting",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "New Program",
+            to: "/Newprogram",
           },
           {
             _tag: "CSidebarNavItem",
