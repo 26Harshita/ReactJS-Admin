@@ -20,6 +20,35 @@ const _nav = [
     icon: "cil-puzzle",
   },
 
+  // {
+  //   _tag: "CSidebarNavDropdown",
+  //   name: "USER",
+  //   to: "",
+  //   icon: "cil-group",
+  //   _children: [
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Customers",
+  //       to: "/users",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Create Customer",
+  //       to: "/welcome",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Trainers",
+  //       to: "/userrs",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Create Trainer",
+  //       to: "/trainer",
+  //     },
+  //   ],
+  // },
+
   {
     _tag: "CSidebarNavDropdown",
     name: "USER",
@@ -27,27 +56,57 @@ const _nav = [
     icon: "cil-group",
     _children: [
       {
-        _tag: "CSidebarNavItem",
-        name: "Customers",
-        to: "/users",
+        _tag: "CSidebarNavDropdown",
+        name: "Customer",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Customers",
+            to: "/users",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Create Customer",
+            to: "/welcome",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Bad Customer",
+            to: "/badCustomer",
+          },
+        ],
       },
       {
-        _tag: "CSidebarNavItem",
-        name: "Create Customer",
-        to: "/welcome",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Trainers",
-        to: "/userrs",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Create Trainer",
-        to: "/trainer",
+        _tag: "CSidebarNavDropdown",
+        name: "Trainer",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Trainers",
+            to: "/userrs",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Create Trainer",
+            to: "/trainer",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Reported Trainer",
+            to: "/reportedTrainer",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Live Class Status",
+            to: "/VideoListingg",
+          },
+        ],
       },
     ],
   },
+
   //   {
   //     _tag: 'CSidebarNavItem',
   // name: 'PACKAGES',
@@ -86,11 +145,11 @@ const _nav = [
           //   name: 'Subscribe without payment',
           //   to: '/addvideo',
           // },
-          {
-            _tag: "CSidebarNavItem",
-            name: "Liveclasses",
-            to: "/VideoListingg",
-          },
+          // {
+          //   _tag: "CSidebarNavItem",
+          //   name: "Liveclasses",
+          //   to: "/VideoListingg",
+          // },
         ],
       },
     ],

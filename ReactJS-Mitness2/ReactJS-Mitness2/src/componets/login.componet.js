@@ -9,131 +9,136 @@ export default class CreateExercise extends Component {
 
     this.onChangefirstname = this.onChangefirstname.bind(this);
     this.onChangelastname = this.onChangelastname.bind(this);
-    this.onChangeemail=this.onChangeemail.bind(this);
-    this.onChangepassword=this.onChangepassword.bind(this);
-    this.onChangerole=this.onChangerole.bind(this);
-    this.onChangeage=this.onChangeage.bind(this);
-    this.onChangeweight=this.onChangeweight.bind(this); 
-    this.onChangeheight=this.onChangeheight.bind(this);
-    this.onChangeaddress=this.onChangeaddress.bind(this);
-    this.onChangecurrentplan=this.onChangecurrentplan.bind(this);
-    this.onChangenextrenewdate=this.onChangenextrenewdate.bind(this);
-    this.onChangenumberofexercises=this.onChangenumberofexercises.bind(this);
-    this.onChangetimedurationofallexercises=this.onChangetimedurationofallexercises.bind(this);
-    this.onChangetotalcaloriesburnt=this.onChangetotalcaloriesburnt.bind(this);
-    this.onChangephonenumber=this.onChangephonenumber.bind(this);
-    this.onChangegender=this.onChangegender.bind(this);
-    
+    this.onChangeemail = this.onChangeemail.bind(this);
+    this.onChangepassword = this.onChangepassword.bind(this);
+    this.onChangerole = this.onChangerole.bind(this);
+    this.onChangeage = this.onChangeage.bind(this);
+    this.onChangeweight = this.onChangeweight.bind(this);
+    this.onChangeheight = this.onChangeheight.bind(this);
+    this.onChangedob = this.onChangedob.bind(this);
+
+    this.onChangeaddress = this.onChangeaddress.bind(this);
+    this.onChangecurrentplan = this.onChangecurrentplan.bind(this);
+    this.onChangenextrenewdate = this.onChangenextrenewdate.bind(this);
+    this.onChangenumberofexercises = this.onChangenumberofexercises.bind(this);
+    this.onChangetimedurationofallexercises =
+      this.onChangetimedurationofallexercises.bind(this);
+    this.onChangetotalcaloriesburnt =
+      this.onChangetotalcaloriesburnt.bind(this);
+    this.onChangephonenumber = this.onChangephonenumber.bind(this);
+    this.onChangegender = this.onChangegender.bind(this);
 
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      firstname: '',
-      lastname: '',
-      email:'',
-      password:'',
-      role: '',
-      gender:'',
-      age:'',
-      weight:'',
-      height:'',
-      address:'',
-      currentplan:'',
-      nextrenewdate:'',
-      numberofexercises:'',
-      timedurationofallexercises:'',
-      totalcaloriesburnt:'',
-      phonenumber:'',
-      customer:[]
-      
-      
-    }
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      role: "",
+      gender: "",
+      age: "",
+      weight: "",
+      height: "",
+      address: "",
+      currentplan: "",
+      nextrenewdate: "",
+      numberofexercises: "",
+      timedurationofallexercises: "",
+      totalcaloriesburnt: "",
+      phonenumber: "",
+      customer: [],
+      dob:""
+    };
   }
 
   onChangefirstname(e) {
     this.setState({
-      firstname: e.target.value
-    })
+      firstname: e.target.value,
+    });
   }
 
   onChangelastname(e) {
     this.setState({
-      lastname: e.target.value
-    })
+      lastname: e.target.value,
+    });
   }
   onChangepassword(e) {
     this.setState({
-      password: e.target.value
-    })
+      password: e.target.value,
+    });
   }
-  
 
   onChangeemail(e) {
     this.setState({
-      email: e.target.value
-    })
+      email: e.target.value,
+    });
   }
   onChangegender(e) {
     this.setState({
-      gender: e.target.value
-    })
+      gender: e.target.value,
+    });
   }
   onChangerole(e) {
     this.setState({
-      role: e.target.value
-    })
+      role: e.target.value,
+    });
   }
   onChangeage(e) {
     this.setState({
-      age: e.target.value
-    })
+      age: e.target.value,
+    });
   }
   onChangeweight(e) {
     this.setState({
-      weight: e.target.value
-    })
+      weight: e.target.value,
+    });
   }
   onChangeheight(e) {
     this.setState({
-      height: e.target.value
-    })
+      height: e.target.value,
+    });
   }
   onChangeaddress(e) {
     this.setState({
-      address: e.target.value
-    })
+      address: e.target.value,
+    });
   }
   onChangecurrentplan(e) {
     this.setState({
-      currentplan: e.target.value
-    })
+      currentplan: e.target.value,
+    });
   }
   onChangenextrenewdate(e) {
     this.setState({
-      nextrenewdate: e.target.value
-    })
+      nextrenewdate: e.target.value,
+    });
   }
   onChangenumberofexercises(e) {
     this.setState({
-      numberofexercises: e.target.value
-    })
+      numberofexercises: e.target.value,
+    });
   }
   onChangetimedurationofallexercises(e) {
     this.setState({
-      timedurationofallexercises: e.target.value
-    })
+      timedurationofallexercises: e.target.value,
+    });
   }
   onChangetotalcaloriesburnt(e) {
     this.setState({
-      totalcaloriesburnt: e.target.value
-    })
+      totalcaloriesburnt: e.target.value,
+    });
   }
   onChangephonenumber(e) {
     this.setState({
-      phonenumber: e.target.value
-    })
+      phonenumber: e.target.value,
+    });
   }
-  
+  onChangedob(e){
+    this.setState({
+      dob: e.target.value,
+    });
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -142,9 +147,9 @@ export default class CreateExercise extends Component {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       email: this.state.email,
-      password:this.state.password,
+      password: this.state.password,
       role: this.state.role,
-      gender:this.state.gender,
+      gender: this.state.gender,
       age: this.state.age,
       weight: this.state.weight,
       height: this.state.height,
@@ -155,73 +160,110 @@ export default class CreateExercise extends Component {
       timedurationofallexercises: this.state.timedurationofallexercises,
       totalcaloriesburnt: this.state.totalcaloriesburnt,
       phonenumber: this.state.phonenumber,
-
-    }
+    };
 
     console.log(customer);
 
-    axios.post('https://mitnessnew.herokuapp.com/customers/signup', customer)
-    .then(function(response){
-
-      if(response.data.returnCode ==='Success'){
-          window.location='/users'
-      }
-     }) 
+    axios
+      .post("https://mitnessnew.herokuapp.com/customers/signup", customer)
+      .then(function (response) {
+        if (response.data.returnCode === "Success") {
+          window.location = "/users";
+        }
+      });
   }
 
   render() {
     return (
-    <div>
-      <h3>Create customer </h3>
-      <br/>
-      <form onSubmit={this.onSubmit} >
-      <div className="form-group" style={{width:"450px"}}> 
-          <label>FirstName: </label>
-          <input  type="text"
+      <div>
+        <h3>Create customer </h3>
+        <br />
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>FirstName: </label>
+            <input
+              type="text"
               required
               className="form-control"
               value={this.state.firstname}
               onChange={this.onChangefirstname}
-              />
-        </div>
-        <div className="form-group" style={{width:"450px"}}> 
-          <label>Lastname: </label>
-          <input  type="text"
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Lastname: </label>
+            <input
+              type="text"
               required
               className="form-control"
               value={this.state.lastname}
               onChange={this.onChangelastname}
-              />
-        </div>
-        <div className="form-group" style={{width:"450px"}}>
-          <label>Email </label>
-          <input 
-              type="text" 
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Email </label>
+            <input
+              type="text"
               className="form-control"
               value={this.state.email}
               onChange={this.onChangeemail}
-              />
-        </div>
-        <div className="form-group" style={{width:"450px"}}>
-          <label>Password </label>
-          <input 
-              type="password" 
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Password </label>
+            <input
+              type="password"
               className="form-control"
               value={this.state.password}
               onChange={this.onChangepassword}
-              />
-        </div>
-        <div className="form-group" style={{width:"450px"}}>
-          <label>Gender </label>
-          <input 
-              type="text" 
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Confirm password</label>
+            <input
+              type="password"
+              className="form-control"
+              value={this.state.password}
+              onChange={this.onChangepassword}
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Height </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.height}
+              onChange={this.onChangeheight}
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Weight </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.weight}
+              onChange={this.onChangeweight}
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Gender </label>
+            <input
+              type="text"
               className="form-control"
               value={this.state.gender}
               onChange={this.onChangegender}
-              />
-        </div>
-        
-        {/* <div className="form-group">
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Date of birth </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.dob}
+              onChange={this.onChangedob}
+            />
+          </div>
+
+          {/* <div className="form-group">
           <label>Role </label>
           <input 
               type="text" 
@@ -230,7 +272,7 @@ export default class CreateExercise extends Component {
               onChange={this.onChangerole}
               />
         </div> */}
-        {/* <div className="form-group">
+          {/* <div className="form-group">
           <label>Age </label>
           <input 
               type="text" 
@@ -311,20 +353,33 @@ export default class CreateExercise extends Component {
               onChange={this.onChangetotalcaloriesburnt}
               />
         </div> */}
-        <div className="form-group" style={{width:"450px"}}>
-          <label>Phonenumber </label>
-          <input 
-              type="text" 
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Phonenumber </label>
+            <input
+              type="text"
               className="form-control"
               value={this.state.phonenumber}
               onChange={this.onChangephonenumber}
-              />
-        </div>
-        <div className="form-group">
-          <input type="submit" value="Create Customer" className="btn btn-primary" />
-        </div>
-      </form>
-    </div>
-    )
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Upload Profile Image </label>
+            <input
+              type="file"
+              id="myFile"
+              name="filename"
+              style={{ width: "450px", backgroundColor:"white" }}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="submit"
+              value="Create Customer"
+              className="btn btn-primary"
+            />
+          </div>
+        </form>
+      </div>
+    );
   }
 }

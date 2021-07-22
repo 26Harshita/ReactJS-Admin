@@ -196,59 +196,104 @@ export default class CreateExercise extends Component {
 
   render() {
     return (
-    <div>
-      <h3>Create trainer </h3>
-      <br/>
-      <form onSubmit={this.onSubmit} >
-      <div className="form-group" style={{width:"450px"}}> 
-          <label>FirstName: </label>
-          <input  type="text"
+      <div>
+        <h3>Create trainer </h3>
+        <br />
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>FirstName: </label>
+            <input
+              type="text"
               required
               className="form-control"
               value={this.state.firstname}
               onChange={this.onChangefirstname}
-              />
-        </div>
-        <div className="form-group" style={{width:"450px"}}> 
-          <label>Lastname: </label>
-          <input  type="text"
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Lastname: </label>
+            <input
+              type="text"
               required
               className="form-control"
               value={this.state.lastname}
               onChange={this.onChangelastname}
-              />
-        </div>
-        <div className="form-group" style={{width:"450px"}}>
-          <label>Email </label>
-          <input 
-              type="text" 
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Email </label>
+            <input
+              type="text"
               className="form-control"
               value={this.state.email}
               onChange={this.onChangeemail}
-              />
-              
-        </div>
-        <div className="form-group" style={{width:"450px"}}>
-          <label>Password </label>
-          <input 
-              type="password" 
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Password </label>
+            <input
+              type="password"
               className="form-control"
               value={this.state.password}
               onChange={this.onChangepassword}
-              />
-        </div>
-        
-        
-        <div className="form-group" style={{width:"450px"}}>
-          <label>Gender </label>
-          <input 
-              type="text" 
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Confirm password</label>
+            <input
+              type="password"
+              className="form-control"
+              value={this.state.password}
+              onChange={this.onChangepassword}
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Height </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.height}
+              onChange={this.onChangeheight}
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Weight </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.weight}
+              onChange={this.onChangeweight}
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Gender </label>
+            <input
+              type="text"
               className="form-control"
               value={this.state.gender}
               onChange={this.onChangegender}
-              />
-        </div>
-        {/* <div className="form-group">
+            />
+          </div>
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Date of birth </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.dob}
+              onChange={this.onChangedob}
+            />
+          </div>
+
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Gender </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.gender}
+              onChange={this.onChangegender}
+            />
+          </div>
+          {/* <div className="form-group">
           <label>Role </label>
           <input 
               type="text" 
@@ -257,16 +302,16 @@ export default class CreateExercise extends Component {
               onChange={this.onChangerole}
               />
         </div> */}
-        <div className="form-group" style={{width:"450px"}}>
-          <label>PhoneNumber </label>
-          <input 
-              type="text" 
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>PhoneNumber </label>
+            <input
+              type="text"
               className="form-control"
               value={this.state.phonenumber}
               onChange={this.onChangephonenumber}
-              />
-        </div>
-        {/* <div className="form-group">
+            />
+          </div>
+          {/* <div className="form-group">
           <label>Status </label>
           <input 
               type="text" 
@@ -374,11 +419,75 @@ export default class CreateExercise extends Component {
               onChange={this.onChangenumberofsubscribers}
               />
         </div> */}
-        <div className="form-group">
-          <input type="submit" value="Create trainer" className="btn btn-primary" />
-        </div>
-      </form>
-    </div>
-    )
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Upload Profile Image </label>
+            <input
+              type="file"
+              id="myFile"
+              name="filename"
+              style={{ width: "450px", backgroundColor: "white" }}
+            />
+          </div>
+
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Brief Description </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.specializedin}
+              onChange={this.onChangespecializedin}
+            />
+          </div>
+
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Career </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.specializedin}
+              onChange={this.onChangespecializedin}
+            />
+          </div>
+
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Certification </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.specializedin}
+              onChange={this.onChangespecializedin}
+            />
+          </div>
+
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Lesson Description </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.specializedin}
+              onChange={this.onChangespecializedin}
+            />
+          </div>
+
+          <div className="form-group" style={{ width: "450px" }}>
+            <label>Upload Image Showing Expertise </label>
+            <input
+              type="file"
+              id="myFile"
+              name="filename"
+              style={{ width: "450px", backgroundColor: "white" }}
+            />
+          </div>
+
+          <div className="form-group">
+            <input
+              type="submit"
+              value="Create trainer"
+              className="btn btn-primary"
+            />
+          </div>
+        </form>
+      </div>
+    );
   }
 }

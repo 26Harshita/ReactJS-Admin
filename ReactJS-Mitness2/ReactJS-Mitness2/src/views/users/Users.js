@@ -46,16 +46,20 @@ export default class CustomersList extends Component {
       let result=response.data
       this.setState({customers:
         result.map(e => {
-          return{
-            select : false,
-            id : e._id,
-            firstname : e.firstname,
+          return {
+            select: false,
+            id: e._id,
+            firstname: e.firstname,
             lastname: e.lastname,
-            email:e.email,
-            phonenumber:e.phonenumber,
-            gender:e.gender
-
-          }
+            email: e.email,
+            phonenumber: e.phonenumber,
+            gender: e.gender,
+            weight: e.weight,
+            height: e.height,
+            dob: e.dob,
+            regDate: e.regDate,
+            withDate: e.withDate,
+          };
         })
         
     })
@@ -129,23 +133,52 @@ export default class CustomersList extends Component {
       return 0;
      })
 
-    return this.state.customers.map(currentcustomer => (
+    return this.state.customers.map((currentcustomer) => (
       <tr>
-        <td  style={{border:"1px double grey",textAlign:"center"}}>
-        <input type="checkbox" onChange={e => {
-                                let value = e.target.checked
-                                console.log(this.state)
-                                this.state.customers.find(o => o.id=== currentcustomer.id).select = value
-                                this.setState(this.state);
-                            }} />
-      </td>
-      <td style={{border:"1px double grey",textAlign:"center"}}><Link to={"/userdetail/"+currentcustomer.id}>{currentcustomer.firstname}</Link></td>
-      <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.lastname}</td>
-      <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.email}</td>
-      {/* <td style={{border:"3px double green"}}>{props.customer.role}</td> */}
-      <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.gender}</td>
-      {/* <td style={{border:"1px double grey",textAlign:"center"}}>{props.customer.age}</td> */}
-      {/* <td style={{border:"3px double green"}}>{props.customer.weight}</td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          <input
+            type="checkbox"
+            onChange={(e) => {
+              let value = e.target.checked;
+              console.log(this.state);
+              this.state.customers.find(
+                (o) => o.id === currentcustomer.id
+              ).select = value;
+              this.setState(this.state);
+            }}
+          />
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.firstname} {currentcustomer.lastname}
+        </td>
+        {/* <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.lastname}
+        </td> */}
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.email}
+        </td>
+        {/* <td style={{border:"3px double green"}}>{props.customer.role}</td> */}
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.gender}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.height}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.weight}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.dob}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.regDate}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.withDate}
+        </td>
+
+        {/* <td style={{border:"1px double grey",textAlign:"center"}}>{props.customer.age}</td> */}
+        {/* <td style={{border:"3px double green"}}>{props.customer.weight}</td>
       <td style={{border:"3px double green"}}>{props.customer.height}</td>
       <td style={{border:"3px double green"}}>{props.customer.address}</td>
       <td style={{border:"3px double green"}}>{props.customer.currentplan}</td>
@@ -153,14 +186,18 @@ export default class CustomersList extends Component {
       <td style={{border:"3px double green"}}>{props.customer.numberofexercises}</td>
       <td style={{border:"3px double green"}}>{props.customer.timedurationofallexercises}</td>
       <td style={{border:"3px double green"}}>{props.customer.totalcaloriesburnt}</td> */}
-      <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.phonenumber}</td>
-      
-      {/* <td style={{border:"1px double grey",textAlign:"center"}}>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          <Link to={"/userdetail/" + currentcustomer.id}>
+            <button>view</button>
+          </Link>
+        </td>
+
+        {/* <td style={{border:"1px double grey",textAlign:"center"}}>
         <input type="checkbox"  /> <a href="#" onClick={() => { props.deleteCustomer(props.customer._id) }}>delete</a> 
       </td> */}
-    </tr>
+      </tr>
       // return <Customer customer={currentcustomer} deleteCustomer={this.deleteCustomer} key={currentcustomer._id}/>;
-    ))
+    ));
     
   }
   
@@ -203,11 +240,24 @@ export default class CustomersList extends Component {
                   </form>
                 </div>
 
-                {/* <div style={{width:"9%"}}><Link to="/welcome" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div> */}
+                <div style={{ width: "9%" }}>
+                  <Link to="/welcome" className="nav-link">
+                    <button
+                      type="submit"
+                      value="AddNewTrainer"
+                      className="btn btn-success"
+                    >
+                      <AddIcon />
+                    </button>
+                  </Link>
+                </div>
 
                 <div style={{ width: "22%" }}>
                   <button
-                    style={{ height: "25", marginTop: "4px", marginLeft: "30px" }}
+                    style={{
+                      height: "25",
+                      marginTop: "8px",
+                    }}
                     className="btn btn-danger "
                     onClick={() => {
                       this.deleteCustomerByIds();
@@ -241,14 +291,13 @@ export default class CustomersList extends Component {
                       <th
                         style={{
                           border: "1px double white",
-                          width: "100px",
+                          width: "70px",
                           backgroundColor: "#3d84b8",
                           color: "white",
                           textAlign: "center",
+                          verticalAlign: "middle",
                         }}
-                      >
-                        Delete
-                      </th>
+                      ></th>
                       <th
                         style={{
                           border: "1px double white",
@@ -256,11 +305,12 @@ export default class CustomersList extends Component {
                           backgroundColor: "#3d84b8",
                           color: "white",
                           textAlign: "center",
+                          verticalAlign: "middle",
                         }}
                       >
-                        First Name
+                        Name
                       </th>
-                      <th
+                      {/* <th
                         style={{
                           border: "1px double white",
                           width: "100px",
@@ -270,7 +320,7 @@ export default class CustomersList extends Component {
                         }}
                       >
                         Last Name
-                      </th>
+                      </th> */}
                       <th
                         style={{
                           border: "1px double white",
@@ -278,6 +328,7 @@ export default class CustomersList extends Component {
                           backgroundColor: "#3d84b8",
                           color: "white",
                           textAlign: "center",
+                          verticalAlign: "middle",
                         }}
                       >
                         Email
@@ -290,9 +341,70 @@ export default class CustomersList extends Component {
                           backgroundColor: "#3d84b8",
                           color: "white",
                           textAlign: "center",
+                          verticalAlign: "middle",
                         }}
                       >
                         Gender
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "30px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Height(cm)
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "30px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Weight(kg)
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "30px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        D.O.B
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "30px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Registered Date
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "30px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Withdrawal Date
                       </th>
                       {/* <th style={{border:"3px double green"}}>Weight</th>
               <th style={{border:"3px double green"}}>Height</th>
@@ -309,9 +421,10 @@ export default class CustomersList extends Component {
                           backgroundColor: "#3d84b8",
                           color: "white",
                           textAlign: "center",
+                          verticalAlign: "middle",
                         }}
                       >
-                        Phone Number
+                        Details
                       </th>
                     </tr>
                   </thead>

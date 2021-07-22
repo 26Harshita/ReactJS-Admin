@@ -61,6 +61,10 @@ const Users = React.lazy(() => import("./views/users/Users"));
 const BlockUsers = React.lazy(() => import("./views/users/BlockUsers"));
 const Spam = React.lazy(() => import("./views/users/Spam"));
 const Wallet = React.lazy(() => import("./views/users/Wallet"));
+const BadCustomer = React.lazy(() => import("./views/users/BadCustomer"));
+const ReportedTrainer = React.lazy(() =>
+  import("./views/users/ReportedTrainer")
+);
 const PointConversion = React.lazy(() =>
   import("./views/users/PointConversion")
 );
@@ -243,6 +247,19 @@ const routes = [
   },
   { path: "/Spam", exact: true, name: "Spam", component: Spam },
   { path: "/Wallet", exact: true, name: "Wallet", component: Wallet },
+  {
+    path: "/badCustomer",
+    exact: true,
+    name: "badCustomer",
+    component: BadCustomer,
+  },
+  {
+    path: "/reportedTrainer",
+    exact: true,
+    name: "reportedTrainer",
+    component: ReportedTrainer,
+  },
+
   {
     path: "/PointConversion",
     exact: true,

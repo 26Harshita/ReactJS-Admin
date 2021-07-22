@@ -126,23 +126,26 @@ export default class CustomersList extends Component {
                                 this.setState(this.state);
                             }} />
       </td>
-      <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.classname}</td>
+      {/* <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.classname}</td> */}
     <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.image}</td>
     <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.description}</td>
     <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.category}</td>
     
-    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.duration}</td>
+    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.name}</td>
+    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.time}</td>
+    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.difficulty}</td>
+
+    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.snameandcount}</td>
+
     
-    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.caloriesburnt}</td>
-    <td style={{border:"1px double grey",textAlign:"center"}}>
+    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.sdateandtime}</td>
+    {/* <td style={{border:"1px double grey",textAlign:"center"}}>
     <tr style={{textAlign:"center"}}>name:{currentcustomer.name}</tr>
     <tr style={{textAlign:"center"}}>image:{currentcustomer.img}</tr>
    
 
-    </td>
-    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.instructorprofile}</td>
-    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.sdateandtime}</td>
-    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.snameandcount}</td>
+    </td> */}
+    <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.status}</td>
     
     </tr>
       
@@ -160,62 +163,54 @@ export default class CustomersList extends Component {
 
   
     return (
-      
       <div>
-        
         <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <div style={{ display: "flex" }}>
+                <div style={{ width: "80%" }}>
+                  <h4>
+                    <b>Live Classes</b>
+                  </h4>
+                </div>
+                <div style={{ marginTop: "5px" }}>
+                  <form onSubmit={this.onSubmit}>
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        required
+                        className="form-control"
+                        value={this.state.classname}
+                        onChange={this.onChangeclassname}
+                      />
+                      <div className="input-group-apppend">
+                        <button className="btn btn-secondary" type="submit">
+                          <i className="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
 
+                  <div></div>
+                </div>
 
-
-<div class="row">
-  <div class="col-md">
-
-             <div style={{display:"flex"}}>
-    <div style={{width:"80%"}}><h4><b>Live Classes</b></h4></div>
-    <div style={{marginTop:"5px"}}>
-    <form onSubmit={this.onSubmit}>
-      <div className="input-group"> 
-          
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.classname}
-              onChange={this.onChangeclassname}
-              />
-              <div className="input-group-apppend">
-              <button className="btn btn-secondary" type="submit">
-              <i className="fa fa-search"></i>
-              </button>
+                <div style={{ width: "18%" }}>
+                  {" "}
+                  <button
+                    className="btn btn-danger btn-sm m-2"
+                    onClick={() => {
+                      this.deleteCustomerByIds();
+                    }}
+                  >
+                    <DeleteIcon />
+                  </button>
+                </div>
               </div>
-        </div>
-        </form>
-       
-        <div>
-    
-    </div>
-       
-        
-        </div>
-    
-    <div style={{width:"18%"}}> <button 
-        className="btn btn-danger btn-sm m-2"
-        onClick={() => {
-          this.deleteCustomerByIds();
-        }}
-      >
-   <DeleteIcon/>
-      </button></div>
-    
-</div>
-        <div style={{overflowX:"scroll",overflowY:"scroll"}}>
-        
-          
-       
-        
-        <table className="table" style={{border:"1px double grey"}}>
-          <thead className="thead-light">
-            <tr>
-            {/* <th>
+              <div style={{ overflowX: "scroll", overflowY: "scroll" }}>
+                <table className="table" style={{ border: "1px double grey" }}>
+                  <thead className="thead-light">
+                    <tr>
+                      {/* <th>
             
               
               <input
@@ -231,36 +226,125 @@ export default class CustomersList extends Component {
                 }}
               />
             </th> */}
-            <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Delete</th>
-            <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Class Name</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Featured Image</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Class Description</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Class Category</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Class Duration</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Expected Calories Burnt</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Instructor Name&Image</th>
-               <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Instructor Profile</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Start Date&Time</th>
-              <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Subscribers Names&Count</th> 
-              
-              
-              
-           
-            </tr>
-            
-          </thead>
-          <tbody>
-            { this.customerList() }
-          </tbody>
-         
-        </table>
-      
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      ></th>
+                      {/* <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Class Name</th> */}
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Image
+                      </th>
+                      {/* <th style={{border:"1px double white",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Class Description</th> */}
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Category
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Class Name
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Instructor
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Time
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Difficulty
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        No. of Users
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Registered Date
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>{this.customerList()}</tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-        
       </div>
-    )
+    );
   }
 }

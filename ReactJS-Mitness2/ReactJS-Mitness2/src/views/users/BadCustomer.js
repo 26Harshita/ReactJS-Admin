@@ -1,137 +1,130 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-
-
-import DeleteIcon from '@material-ui/icons/Delete';
-import AddIcon from '@material-ui/icons/Add';
-
-
-
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import FilterListRoundedIcon from "@material-ui/icons/FilterListRounded";
+import Search from "@material-ui/icons/SearchRounded";
+import { Checkbox, Input } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import AddIcon from "@material-ui/icons/Add";
 
 export default class CustomersList extends Component {
-
   constructor(props) {
     super(props);
 
-    this.deleteCustomer = this.deleteCustomer.bind(this)
+    this.deleteCustomer = this.deleteCustomer.bind(this);
     this.onChangefirstname = this.onChangefirstname.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      firstname:'',
-      customers: []
+      firstname: "",
+      customers: [],
     };
   }
-  
 
   componentDidMount() {
-   
-      axios.post('https://mitnessnew.herokuapp.com/instructors/')
-    .then(response => {
-      
-      this.setState({ customers: response.data})
-      // console.log(this.state.customers);
-      // this.setState.customers.map(d=>{
-      //  return{
-      //    select:false,
-      //    id:d._id,
-         
+    axios
+      .post("https://mitnessnew.herokuapp.com/customers/")
+      .then((response) => {
+        this.setState({ customers: response.data });
+        // console.log(this.state.customers);
+        // this.setState.customers.map(d=>{
+        //  return{
+        //    select:false,
+        //    id:d._id,
 
-      //  }
+        //  }
 
-       
-        
-      // })
-      let result=response.data
-      this.setState({customers:
-        result.map(e => {
-          return{
-            select : false,
-            id : e._id,
-            firstname : e.firstname,
-            lastname: e.lastname,
-            email:e.email,
-            phonenumber:e.phonenumber,
-            gender:e.gender,
-            weight: e.weight,
-            height: e.height,
-            dob: e.dob,
-            regDate: e.regDate,
-            withDate: e.withDate,
-          }
-        })
-        
-    })
-    console.log(this.state)
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    
+        // })
+        let result = response.data;
+        this.setState({
+          customers: result.map((e) => {
+            return {
+              select: false,
+              id: e._id,
+              firstname: e.firstname,
+              lastname: e.lastname,
+              email: e.email,
+              phonenumber: e.phonenumber,
+              gender: e.gender,
+              weight: e.weight,
+              height: e.height,
+              dob: e.dob,
+              repDate: e.repDate,
+              regDate: e.regDate,
+              withDate: e.withDate,
+              rep: e.rep
+            };
+          }),
+        });
+        console.log(this.state);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   deleteCustomerByIds = () => {
-  const arrayids = [];
-    this.state.customers.forEach(d => {
-      if(d.select) { 
+    const arrayids = [];
+    this.state.customers.forEach((d) => {
+      if (d.select) {
         arrayids.push(d.id);
       }
     });
-   
-    axios.post('https://mitnessnew.herokuapp.com/instructors/delete',{arrayids:arrayids})
-    .then(response=>{
-      if(response.data.message==="Deleted Successfully")
-      {
-        window.location.reload(true)
-      }
- 
-    })
-    
-  
-    ;
+    // console.log(arrayids)
+    axios
+      .post("https://mitnessnew.herokuapp.com/customers/delete", {
+        arrayids: arrayids,
+      })
+
+      .then((response) => {
+        if (response.data.message === "Deleted Successfully") {
+          window.location.reload(true);
+        }
+      });
     // axios
     //   .delete('https://vast-river-32952.herokuapp.com/customers/')
     //   .then(data => {
     //     console.log(data);
     //     this.componentDidMount();
     //   })
-      // .catch(err => alert(err));
+    // .catch(err => alert(err));
   };
   onChangefirstname(e) {
     this.setState({
-      firstname: e.target.value
-    })
+      firstname: e.target.value,
+    });
   }
   onSubmit(e) {
     e.preventDefault();
 
     const customer = {
-      firstname: this.state.firstname
-    }
-    axios.post('https://mitnessnew.herokuapp.com/instructors/search', customer)
-      .then(res => {
-        this.setState({ customers: res.data })
+      firstname: this.state.firstname,
+    };
+    axios
+      .post("https://mitnessnew.herokuapp.com/customers/search", customer)
+      .then((res) => {
+        this.setState({ customers: res.data });
       })
       .catch((error) => {
-             console.log(error);
-           })
-      
+        console.log(error);
+      });
   }
   deleteCustomer(id) {
-    axios.delete('https://mitnessnew.herokuapp.com/instructors/'+id)
-      .then(response => { console.log(response.data)});
+    axios
+      .delete("https://mitnessnew.herokuapp.com/customers/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
 
     this.setState({
-      customers: this.state.customers.filter(el => el._id !== id)
-    })
+      customers: this.state.customers.filter((el) => el._id !== id),
+    });
   }
-  
+
   customerList() {
-    this.state.customers.sort(function(a,b){
-      if(a.firstname.toLowerCase() < b.firstname.toLowerCase()) return -1;
-      if(a.firstname.toLowerCase() > b.firstname.toLowerCase()) return 1;
+    this.state.customers.sort(function (a, b) {
+      if (a.firstname.toLowerCase() < b.firstname.toLowerCase()) return -1;
+      if (a.firstname.toLowerCase() > b.firstname.toLowerCase()) return 1;
       return 0;
-     })
+    });
 
     return this.state.customers.map((currentcustomer) => (
       <tr>
@@ -149,7 +142,7 @@ export default class CustomersList extends Component {
           />
         </td>
         <td style={{ border: "1px double grey", textAlign: "center" }}>
-            {currentcustomer.firstname} {currentcustomer.lastname}
+          {currentcustomer.firstname} {currentcustomer.lastname}
         </td>
         {/* <td style={{ border: "1px double grey", textAlign: "center" }}>
           {currentcustomer.lastname}
@@ -158,7 +151,7 @@ export default class CustomersList extends Component {
           {currentcustomer.email}
         </td>
         {/* <td style={{border:"3px double green"}}>{props.customer.role}</td> */}
-        <td style={{ border: "1px double grey", textAlign: "center" }}>
+        {/* <td style={{ border: "1px double grey", textAlign: "center" }}>
           {currentcustomer.gender}
         </td>
         <td style={{ border: "1px double grey", textAlign: "center" }}>
@@ -169,13 +162,19 @@ export default class CustomersList extends Component {
         </td>
         <td style={{ border: "1px double grey", textAlign: "center" }}>
           {currentcustomer.dob}
+        </td> */}
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.repDate}
         </td>
         <td style={{ border: "1px double grey", textAlign: "center" }}>
           {currentcustomer.regDate}
         </td>
         <td style={{ border: "1px double grey", textAlign: "center" }}>
-          {currentcustomer.withDate}
+          {currentcustomer.rep}
         </td>
+        {/* <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.withDate}
+        </td> */}
 
         {/* <td style={{border:"1px double grey",textAlign:"center"}}>{props.customer.age}</td> */}
         {/* <td style={{border:"3px double green"}}>{props.customer.weight}</td>
@@ -186,11 +185,11 @@ export default class CustomersList extends Component {
       <td style={{border:"3px double green"}}>{props.customer.numberofexercises}</td>
       <td style={{border:"3px double green"}}>{props.customer.timedurationofallexercises}</td>
       <td style={{border:"3px double green"}}>{props.customer.totalcaloriesburnt}</td> */}
-        <td style={{ border: "1px double grey", textAlign: "center" }}>
+        {/* <td style={{ border: "1px double grey", textAlign: "center" }}>
           <Link to={"/userdetail/" + currentcustomer.id}>
             <button>view</button>
           </Link>
-        </td>
+        </td> */}
 
         {/* <td style={{border:"1px double grey",textAlign:"center"}}>
         <input type="checkbox"  /> <a href="#" onClick={() => { props.deleteCustomer(props.customer._id) }}>delete</a> 
@@ -198,27 +197,18 @@ export default class CustomersList extends Component {
       </tr>
       // return <Customer customer={currentcustomer} deleteCustomer={this.deleteCustomer} key={currentcustomer._id}/>;
     ));
-    
   }
-  
-  
- 
 
-
-
-  render()
- {
-
-  
+  render() {
     return (
       <div>
         <div class="container">
           <div class="row">
             <div class="col-md">
               <div style={{ display: "flex" }}>
-                <div style={{ width: "80%" }}>
+                <div style={{ width: "70%" }}>
                   <h4>
-                    <b>Trainer</b>
+                    <b>Bad Customer</b>
                   </h4>
                 </div>
                 <div style={{ marginTop: "5px" }}>
@@ -240,12 +230,24 @@ export default class CustomersList extends Component {
                   </form>
                 </div>
 
-                <div style={{width:"9%"}}><Link to="/trainer" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div>
+                {/* <div style={{ width: "9%" }}>
+                  <Link to="/welcome" className="nav-link">
+                    <button
+                      type="submit"
+                      value="AddNewTrainer"
+                      className="btn btn-success"
+                    >
+                      <AddIcon />
+                    </button>
+                  </Link>
+                </div> */}
+
                 <div style={{ width: "22%" }}>
                   <button
                     style={{
                       height: "25",
-                      marginTop: "8px",
+                      marginTop: "4px",
+                      marginLeft: "30px",
                     }}
                     className="btn btn-danger "
                     onClick={() => {
@@ -256,6 +258,7 @@ export default class CustomersList extends Component {
                   </button>
                 </div>
               </div>
+
               <div style={{ overflowX: "scroll", overflowY: "scroll" }}>
                 <table className="table" style={{ border: "1px double grey" }}>
                   <thead className="thead-light">
@@ -322,7 +325,7 @@ export default class CustomersList extends Component {
                         Email
                       </th>
                       {/* <th style={{border:"3px double green"}}>Role</th> */}
-                      <th
+                      {/* <th
                         style={{
                           border: "1px double white",
                           width: "30px",
@@ -369,6 +372,18 @@ export default class CustomersList extends Component {
                         }}
                       >
                         D.O.B
+                      </th> */}
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "30px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                        }}
+                      >
+                        Reported Date
                       </th>
                       <th
                         style={{
@@ -380,9 +395,9 @@ export default class CustomersList extends Component {
                           verticalAlign: "middle",
                         }}
                       >
-                        Registered Date
+                        Registration Date
                       </th>
-                      <th
+                      {/* <th
                         style={{
                           border: "1px double white",
                           width: "30px",
@@ -393,7 +408,7 @@ export default class CustomersList extends Component {
                         }}
                       >
                         Withdrawal Date
-                      </th>
+                      </th> */}
                       {/* <th style={{border:"3px double green"}}>Weight</th>
               <th style={{border:"3px double green"}}>Height</th>
               <th style={{border:"3px double green"}}>Address</th>
@@ -412,7 +427,7 @@ export default class CustomersList extends Component {
                           verticalAlign: "middle",
                         }}
                       >
-                        Details
+                        Report
                       </th>
                     </tr>
                   </thead>
