@@ -50,35 +50,60 @@ export default class Addfaq extends Component{
           }
         
     render(){
-        return(
-            <div>
-                <h3 >Create Faq </h3>
-                <br/>
-      <form onSubmit={this.onSubmit}>
-      <div className="form-group"  style={{width:"400px"}}> 
-          <label>Question: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.question}
-              onChange={this.onChangequestion}
-              />
-        </div>
-        <div className="form-group"  style={{width:"400px"}}> 
-          <label>Answer: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.answer}
-              onChange={this.onChangeanswer}
-              />
-        </div>
-        <div className="form-group"  >
-          <input type="submit" value="Create Faq" className="btn btn-primary" />
-        </div>
-      
-      </form>
-            </div>
-        )
+        return (
+          <div>
+            <h3>Create Faq </h3>
+            <br />
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group" style={{ width: "400px" }}>
+                <label>Question: </label>
+                <input
+                  type="text"
+                  required
+                  className="form-control"
+                  value={this.state.question}
+                  onChange={this.onChangequestion}
+                />
+              </div>
+              <div className="form-group" style={{ width: "400px" }}>
+                <label>Answer: </label>
+                <input
+                  type="text"
+                  required
+                  className="form-control"
+                  value={this.state.answer}
+                  onChange={this.onChangeanswer}
+                />
+              </div>
+              <div className="form-group" style={{ width: "400px" }}>
+                <label>Status</label>
+                <div style={{ width: "400px" }}>
+                  <input
+                    type="checkbox"
+                    id="Shown"
+                    name="Shown"
+                    value="Shown"
+                  />
+                  <label for="vehicle1"> Shown</label>
+                  <input
+                    type="checkbox"
+                    id="Hidden"
+                    name="Hidden"
+                    value="Hidden"
+                    style={{ marginLeft: "40px" }}
+                  />
+                  <label for="vehicle2"> Hidden</label>
+                </div>
+              </div>
+              <div className="form-group">
+                <input
+                  type="submit"
+                  value="Create Faq"
+                  className="btn btn-primary"
+                />
+              </div>
+            </form>
+          </div>
+        );
     }
 }

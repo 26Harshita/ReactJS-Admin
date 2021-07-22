@@ -92,22 +92,37 @@ export default class CustomersList extends Component {
       return 0;
      })
 
-    return this.state.customers.map(currentcustomer => (
+    return this.state.customers.map((currentcustomer) => (
       <tr>
-        <td style={{border:"1px double grey",textAlign:"center"}}>
-        <input type="checkbox" onChange={e => {
-                                let value = e.target.checked
-                                console.log(this.state)
-                                this.state.customers.find(o => o.id=== currentcustomer.id).select = value
-                                this.setState(this.state);
-                            }} />
-      </td>
-      <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.question}</td>
-      <td style={{border:"1px double grey",textAlign:"center"}}>{currentcustomer.answer}</td>
-      
-    </tr>
-     
-    ))
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          <input
+            type="checkbox"
+            onChange={(e) => {
+              let value = e.target.checked;
+              console.log(this.state);
+              this.state.customers.find(
+                (o) => o.id === currentcustomer.id
+              ).select = value;
+              this.setState(this.state);
+            }}
+          />
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.question}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.answer}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          {currentcustomer.status}
+        </td>
+        <td style={{ border: "1px double grey", textAlign: "center" }}>
+          <Link to={"#" + currentcustomer.id}>
+            <button>Edit</button>
+          </Link>
+        </td>
+      </tr>
+    ));
     
   }
   
@@ -177,8 +192,10 @@ export default class CustomersList extends Component {
               />
             </th> */}
             <th style={{border:"1px double white",width:"5%",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Delete</th>
-              <th style={{border:"1px double white",width:"150px" ,backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Questions</th>
-              <th style={{border:"1px double white",width:"100px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Answers</th>
+              <th style={{border:"1px double white",width:"150px" ,backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Question</th>
+              <th style={{border:"1px double white",width:"150px" ,backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Answer</th>
+              <th style={{border:"1px double white",width:"100px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Status</th>
+              <th style={{border:"1px double white",width:"100px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Edit</th>
               
            
             </tr>

@@ -178,6 +178,90 @@ const _nav = [
     ],
   },
 
+  {
+    _tag: "CSidebarNavDropdown",
+    name: "Calorie Management",
+    to: "",
+    icon: "cil-notes",
+    _children: [
+      {
+        _tag: "CSidebarNavItem",
+        name: "Calorie List",
+        to: "/CalorieList",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Register Calorie",
+        to: "/RegisterCalorie",
+      },
+    ],
+  },
+
+  {
+    _tag: "CSidebarNavDropdown",
+    name: "Community",
+    to: "",
+    icon: "cil-group",
+    _children: [
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "FAQ Management",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "FAQ",
+            to: "/FAQ",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Register FAQ",
+            to: "/addfaq",
+          },
+        ],
+      },
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Notice Management",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Notice List",
+            to: "/NoticeList",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Register Notice",
+            to: "/RegisterNotice",
+          },
+        ],
+      },
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Event Management",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Event List",
+            to: "/users",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Register Event",
+            to: "/welcome",
+          },
+        ],
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: " Inquiry Management ",
+        to: "/Lowerbody",
+      },
+    ],
+  },
+
   //   {
   //     _tag: 'CSidebarNavDropdown',
   //   name: ' Category Management ',

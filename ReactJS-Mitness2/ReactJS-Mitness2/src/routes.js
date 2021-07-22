@@ -61,6 +61,12 @@ const Users = React.lazy(() => import("./views/users/Users"));
 const BlockUsers = React.lazy(() => import("./views/users/BlockUsers"));
 const Spam = React.lazy(() => import("./views/users/Spam"));
 const Wallet = React.lazy(() => import("./views/users/Wallet"));
+const CalorieList = React.lazy(() => import("./views/users/CalorieList"));
+const RegisterCalorie = React.lazy(() =>
+  import("./views/users/RegisterCalorie")
+);
+const NoticeList = React.lazy(() => import("./views/users/NoticeList"));
+const RegisterNotice = React.lazy(() => import("./views/users/RegisterNotice"));
 const BadCustomer = React.lazy(() => import("./views/users/BadCustomer"));
 const ReportedTrainer = React.lazy(() =>
   import("./views/users/ReportedTrainer")
@@ -247,6 +253,30 @@ const routes = [
   },
   { path: "/Spam", exact: true, name: "Spam", component: Spam },
   { path: "/Wallet", exact: true, name: "Wallet", component: Wallet },
+  {
+    path: "/CalorieList",
+    exact: true,
+    name: "CalorieList",
+    component: CalorieList,
+  },
+  {
+    path: "/RegisterCalorie",
+    exact: true,
+    name: "RegisterCalorie",
+    component: RegisterCalorie,
+  },
+  {
+    path: "/NoticeList",
+    exact: true,
+    name: "NoticeList",
+    component: NoticeList,
+  },
+  {
+    path: "/RegisterNotice",
+    exact: true,
+    name: "RegisterNotice",
+    component: RegisterNotice,
+  },
   {
     path: "/badCustomer",
     exact: true,
