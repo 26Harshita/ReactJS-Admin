@@ -67,6 +67,9 @@ const RegisterCalorie = React.lazy(() =>
 );
 const NoticeList = React.lazy(() => import("./views/users/NoticeList"));
 const RegisterNotice = React.lazy(() => import("./views/users/RegisterNotice"));
+const EventList = React.lazy(() => import("./views/users/EventList"));
+const RegisterEvent = React.lazy(() => import("./views/users/RegisterEvent"));
+const InquiryManagement = React.lazy(() => import("./views/users/InquiryManagement"));
 const BadCustomer = React.lazy(() => import("./views/users/BadCustomer"));
 const ReportedTrainer = React.lazy(() =>
   import("./views/users/ReportedTrainer")
@@ -264,6 +267,24 @@ const routes = [
     exact: true,
     name: "RegisterCalorie",
     component: RegisterCalorie,
+  },
+  {
+    path: "/EventList",
+    exact: true,
+    name: "EventList",
+    component: EventList,
+  },
+  {
+    path: "/RegisterEvent",
+    exact: true,
+    name: "RegisterEvent",
+    component: RegisterEvent,
+  },
+  {
+    path: "/InquiryManagement",
+    exact: true,
+    name: "InquiryManagement",
+    component: InquiryManagement,
   },
   {
     path: "/NoticeList",

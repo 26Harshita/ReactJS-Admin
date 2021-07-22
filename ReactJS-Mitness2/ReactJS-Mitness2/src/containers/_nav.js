@@ -245,19 +245,19 @@ const _nav = [
           {
             _tag: "CSidebarNavItem",
             name: "Event List",
-            to: "/users",
+            to: "/EventList",
           },
           {
             _tag: "CSidebarNavItem",
             name: "Register Event",
-            to: "/welcome",
+            to: "/RegisterEvent",
           },
         ],
       },
       {
         _tag: "CSidebarNavItem",
         name: " Inquiry Management ",
-        to: "/Lowerbody",
+        to: "/InquiryManagement",
       },
     ],
   },
