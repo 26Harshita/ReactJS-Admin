@@ -328,32 +328,32 @@ const _nav = [
   //   icon: 'cil-storage',
 
   //   },
-  {
-    _tag: "CSidebarNavDropdown",
-    name: "Program Management",
-    to: "",
-    icon: "cil-layers",
-    _children: [
-      {
-        _tag: "CSidebarNavDropdown",
-        name: "Program Listing",
-        to: "",
-        _children: [
-          {
-            _tag: "CSidebarNavItem",
-            name: "Programs",
-            to: "/Videolisting",
-          },
-          {
-            _tag: "CSidebarNavItem",
-            name: "New Program",
-            to: "/Newprogram",
-          },
-          {
-            _tag: "CSidebarNavItem",
-            name: "Videolisting",
-            to: "/video",
-          },
+  // {
+  //   _tag: "CSidebarNavDropdown",
+  //   name: "Program Management",
+  //   to: "",
+  //   icon: "cil-layers",
+  //   _children: [
+  //     {
+  //       _tag: "CSidebarNavDropdown",
+  //       name: "Program Listing",
+  //       to: "",
+  //       _children: [
+  //         {
+  //           _tag: "CSidebarNavItem",
+  //           name: "Programs",
+  //           to: "/Videolisting",
+  //         },
+  //         {
+  //           _tag: "CSidebarNavItem",
+  //           name: "New Program",
+  //           to: "/Newprogram",
+  //         },
+  //         {
+  //           _tag: "CSidebarNavItem",
+  //           name: "Videolisting",
+  //           to: "/video",
+  //         },
           //   {
           //   _tag: 'CSidebarNavItem',
           //   name: 'Subscribe without payment',
@@ -364,33 +364,33 @@ const _nav = [
           //   name: "Liveclasses",
           //   to: "/VideoListingg",
           // },
-        ],
-      },
-    ],
-  },
-  {
-    _tag: "CSidebarNavDropdown",
-    name: "Content Management",
-    to: "",
-    icon: "cil-notes",
-    _children: [
-      {
-        _tag: "CSidebarNavItem",
-        name: "FAQ",
-        to: "/FAQ",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Contact us Enquiries",
-        to: "/ContactUs",
-      },
-      {
-        _tag: "CSidebarNavItem",
-        name: "Recommended Programs",
-        to: "/RecommendedPrograms",
-      },
-    ],
-  },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   _tag: "CSidebarNavDropdown",
+  //   name: "Content Management",
+  //   to: "",
+  //   icon: "cil-notes",
+  //   _children: [
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "FAQ",
+  //       to: "/FAQ",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Contact us Enquiries",
+  //       to: "/ContactUs",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Recommended Programs",
+  //       to: "/RecommendedPrograms",
+  //     },
+  //   ],
+  // },
 
   //   {
   //     _tag: 'CSidebarNavDropdown',
@@ -407,36 +407,36 @@ const _nav = [
   //   ]
 
   // },
-  {
-    _tag: "CSidebarNavItem",
-    name: " Point Status ",
-    to: "/Lowerbody",
-    icon: "cil-dollar",
-  },
-  {
-    _tag: "CSidebarNavItem",
-    name: " Block Users ",
-    to: "/BlockUsers",
-    icon: "cil-lock-locked",
-  },
-  {
-    _tag: "CSidebarNavItem",
-    name: " Spam ",
-    to: "/Spam",
-    icon: "cil-moon",
-  },
-  {
-    _tag: "CSidebarNavItem",
-    name: " Wallet ",
-    to: "/Wallet",
-    icon: "cil-notes",
-  },
-  {
-    _tag: "CSidebarNavItem",
-    name: " Set Price For Points ",
-    to: "/PointConversion",
-    icon: "cil-dollar",
-  },
+  // {
+  //   _tag: "CSidebarNavItem",
+  //   name: " Point Status ",
+  //   to: "/Lowerbody",
+  //   icon: "cil-dollar",
+  // },
+  // {
+  //   _tag: "CSidebarNavItem",
+  //   name: " Block Users ",
+  //   to: "/BlockUsers",
+  //   icon: "cil-lock-locked",
+  // },
+  // {
+  //   _tag: "CSidebarNavItem",
+  //   name: " Spam ",
+  //   to: "/Spam",
+  //   icon: "cil-moon",
+  // },
+  // {
+  //   _tag: "CSidebarNavItem",
+  //   name: " Wallet ",
+  //   to: "/Wallet",
+  //   icon: "cil-notes",
+  // },
+  // {
+  //   _tag: "CSidebarNavItem",
+  //   name: " Set Price For Points ",
+  //   to: "/PointConversion",
+  //   icon: "cil-dollar",
+  // },
 ];
 
 export default _nav

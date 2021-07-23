@@ -62,6 +62,10 @@ const BlockUsers = React.lazy(() => import("./views/users/BlockUsers"));
 const Spam = React.lazy(() => import("./views/users/Spam"));
 const Wallet = React.lazy(() => import("./views/users/Wallet"));
 const CalorieList = React.lazy(() => import("./views/users/CalorieList"));
+const ProgramList = React.lazy(() => import("./views/users/ProgramList"));
+const RegisterProgram = React.lazy(() => import("./views/users/RegisterProgram"));
+const ExLiveClass = React.lazy(() => import("./views/users/ExLiveClass"));
+const ExRegisterLiveClass = React.lazy(() => import("./views/users/ExRegisterLiveClass"));
 const ExVideoList = React.lazy(() => import("./views/users/ExVideoList"));
 const ExRegisterVideo = React.lazy(() => import("./views/users/ExRegisterVideo"));
 const MainAreaOfWorkout = React.lazy(() => import("./views/users/MainAreaOfWorkout"));
@@ -271,6 +275,30 @@ const routes = [
     exact: true,
     name: "CalorieList",
     component: CalorieList,
+  },
+  {
+    path: "/ProgramList",
+    exact: true,
+    name: "ProgramList",
+    component: ProgramList,
+  },
+  {
+    path: "/RegisterProgram",
+    exact: true,
+    name: "RegisterProgram",
+    component: RegisterProgram,
+  },
+  {
+    path: "/ExLiveClass",
+    exact: true,
+    name: "ExLiveClass",
+    component: ExLiveClass,
+  },
+  {
+    path: "/ExRegisterLiveClass",
+    exact: true,
+    name: "ExRegisterLiveClass",
+    component: ExRegisterLiveClass,
   },
   {
     path: "/MainAreaOfWorkout",
