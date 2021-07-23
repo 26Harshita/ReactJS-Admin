@@ -7,7 +7,7 @@ import { Checkbox, Input } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddIcon from "@material-ui/icons/Add";
 
-export default class CustomersList extends Component {
+export default class SetMembershipPrice extends Component {
   constructor(props) {
     super(props);
 
@@ -112,45 +112,45 @@ export default class CustomersList extends Component {
     });
   }
 
-//   customerList() {
-//     this.state.customers.sort(function (a, b) {
-//       if (a.firstname.toLowerCase() < b.firstname.toLowerCase()) return -1;
-//       if (a.firstname.toLowerCase() > b.firstname.toLowerCase()) return 1;
-//       return 0;
-//     });
+  //   customerList() {
+  //     this.state.customers.sort(function (a, b) {
+  //       if (a.firstname.toLowerCase() < b.firstname.toLowerCase()) return -1;
+  //       if (a.firstname.toLowerCase() > b.firstname.toLowerCase()) return 1;
+  //       return 0;
+  //     });
 
-//     return this.state.customers.map((currentcustomer) => (
-//       <tr>
-//         <td style={{ border: "1px double grey", textAlign: "center" }}>
-//           <input
-//             type="checkbox"
-//             onChange={(e) => {
-//               let value = e.target.checked;
-//               console.log(this.state);
-//               this.state.customers.find(
-//                 (o) => o.id === currentcustomer.id
-//               ).select = value;
-//               this.setState(this.state);
-//             }}
-//           />
-//         </td>
-//         <td style={{ border: "1px double grey", textAlign: "center" }}>
-//           <Link to={"/userdetail/" + currentcustomer.id}>
-//             {currentcustomer.firstname}
-//           </Link>
-//         </td>
-//         <td style={{ border: "1px double grey", textAlign: "center" }}>
-//           {currentcustomer.lastname}
-//         </td>
-//         <td style={{ border: "1px double grey", textAlign: "center" }}>
-//           {currentcustomer.email}
-//         </td>
-//         {/* <td style={{border:"3px double green"}}>{props.customer.role}</td> */}
-//         <td style={{ border: "1px double grey", textAlign: "center" }}>
-//           {currentcustomer.gender}
-//         </td>
-        /* <td style={{border:"1px double grey",textAlign:"center"}}>{props.customer.age}</td> */
-        /* <td style={{border:"3px double green"}}>{props.customer.weight}</td>
+  //     return this.state.customers.map((currentcustomer) => (
+  //       <tr>
+  //         <td style={{ border: "1px double grey", textAlign: "center" }}>
+  //           <input
+  //             type="checkbox"
+  //             onChange={(e) => {
+  //               let value = e.target.checked;
+  //               console.log(this.state);
+  //               this.state.customers.find(
+  //                 (o) => o.id === currentcustomer.id
+  //               ).select = value;
+  //               this.setState(this.state);
+  //             }}
+  //           />
+  //         </td>
+  //         <td style={{ border: "1px double grey", textAlign: "center" }}>
+  //           <Link to={"/userdetail/" + currentcustomer.id}>
+  //             {currentcustomer.firstname}
+  //           </Link>
+  //         </td>
+  //         <td style={{ border: "1px double grey", textAlign: "center" }}>
+  //           {currentcustomer.lastname}
+  //         </td>
+  //         <td style={{ border: "1px double grey", textAlign: "center" }}>
+  //           {currentcustomer.email}
+  //         </td>
+  //         {/* <td style={{border:"3px double green"}}>{props.customer.role}</td> */}
+  //         <td style={{ border: "1px double grey", textAlign: "center" }}>
+  //           {currentcustomer.gender}
+  //         </td>
+  /* <td style={{border:"1px double grey",textAlign:"center"}}>{props.customer.age}</td> */
+  /* <td style={{border:"3px double green"}}>{props.customer.weight}</td>
       <td style={{border:"3px double green"}}>{props.customer.height}</td>
       <td style={{border:"3px double green"}}>{props.customer.address}</td>
       <td style={{border:"3px double green"}}>{props.customer.currentplan}</td>
@@ -158,20 +158,20 @@ export default class CustomersList extends Component {
       <td style={{border:"3px double green"}}>{props.customer.numberofexercises}</td>
       <td style={{border:"3px double green"}}>{props.customer.timedurationofallexercises}</td>
       <td style={{border:"3px double green"}}>{props.customer.totalcaloriesburnt}</td> */
-        // <td style={{ border: "1px double grey", textAlign: "center" }}>
-        //   {currentcustomer.phonenumber}
-        // </td>
-        // <td style={{ border: "1px double grey", textAlign: "center" }}>
-        //   {currentcustomer.point}
-        // </td>
+  // <td style={{ border: "1px double grey", textAlign: "center" }}>
+  //   {currentcustomer.phonenumber}
+  // </td>
+  // <td style={{ border: "1px double grey", textAlign: "center" }}>
+  //   {currentcustomer.point}
+  // </td>
 
-        /* <td style={{border:"1px double grey",textAlign:"center"}}>
+  /* <td style={{border:"1px double grey",textAlign:"center"}}>
         <input type="checkbox"  /> <a href="#" onClick={() => { props.deleteCustomer(props.customer._id) }}>delete</a> 
       </td> */
-    //   </tr>
-      // return <Customer customer={currentcustomer} deleteCustomer={this.deleteCustomer} key={currentcustomer._id}/>;
-    // ));
-//   }
+  //   </tr>
+  // return <Customer customer={currentcustomer} deleteCustomer={this.deleteCustomer} key={currentcustomer._id}/>;
+  // ));
+  //   }
 
   render() {
     return (
@@ -182,7 +182,7 @@ export default class CustomersList extends Component {
               <div style={{ display: "flex" }}>
                 <div style={{ width: "70%" }}>
                   <h4>
-                    <b>Set Price For Points</b>
+                    <b>Set Membership Price</b>
                   </h4>
                 </div>
               </div>
@@ -291,7 +291,7 @@ export default class CustomersList extends Component {
                           textAlign: "center",
                         }}
                       >
-                        Price
+                        Period
                       </th>
                       <th
                         style={{
@@ -302,7 +302,7 @@ export default class CustomersList extends Component {
                           textAlign: "center",
                         }}
                       >
-                        Point
+                        Price
                       </th>
                     </tr>
                   </thead>

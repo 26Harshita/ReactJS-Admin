@@ -62,9 +62,17 @@ const BlockUsers = React.lazy(() => import("./views/users/BlockUsers"));
 const Spam = React.lazy(() => import("./views/users/Spam"));
 const Wallet = React.lazy(() => import("./views/users/Wallet"));
 const CalorieList = React.lazy(() => import("./views/users/CalorieList"));
+const MainAreaOfWorkout = React.lazy(() => import("./views/users/MainAreaOfWorkout"));
+const Equipment = React.lazy(() => import("./views/users/Equipment"));
+const Category = React.lazy(() => import("./views/users/Category"));
+const PaymentLiveClass = React.lazy(() =>
+  import("./views/users/PaymentLiveClass")
+);
 const RegisterCalorie = React.lazy(() =>
   import("./views/users/RegisterCalorie")
 );
+const MembershipStatus = React.lazy(() => import("./views/users/MembershipStatus"));
+const SetMembershipPrice = React.lazy(() => import("./views/users/SetMembershipPrice"));
 const NoticeList = React.lazy(() => import("./views/users/NoticeList"));
 const RegisterNotice = React.lazy(() => import("./views/users/RegisterNotice"));
 const EventList = React.lazy(() => import("./views/users/EventList"));
@@ -263,10 +271,46 @@ const routes = [
     component: CalorieList,
   },
   {
+    path: "/MainAreaOfWorkout",
+    exact: true,
+    name: "MainAreaOfWorkout",
+    component: MainAreaOfWorkout,
+  },
+  {
+    path: "/Equipment",
+    exact: true,
+    name: "Equipment",
+    component: Equipment,
+  },
+  {
+    path: "/Category",
+    exact: true,
+    name: "Category",
+    component: Category,
+  },
+  {
+    path: "/PaymentLiveClass",
+    exact: true,
+    name: "PaymentLiveClass",
+    component: PaymentLiveClass,
+  },
+  {
     path: "/RegisterCalorie",
     exact: true,
     name: "RegisterCalorie",
     component: RegisterCalorie,
+  },
+  {
+    path: "/MembershipStatus",
+    exact: true,
+    name: "MembershipStatus",
+    component: MembershipStatus,
+  },
+  {
+    path: "/SetMembershipPrice",
+    exact: true,
+    name: "SetMembershipPrice",
+    component: SetMembershipPrice,
   },
   {
     path: "/EventList",
@@ -314,7 +358,7 @@ const routes = [
   {
     path: "/PointConversion",
     exact: true,
-    name: "Point Conversion",
+    name: "Set Price For Points",
     component: PointConversion,
   },
   { path: "/Instructor", exact: true, name: "Users", component: Userrs },
@@ -350,7 +394,7 @@ const routes = [
   {
     path: "/Lowerbody",
     exact: true,
-    name: "Payment list",
+    name: "Point Status",
     component: Subcatagorys,
   },
   {

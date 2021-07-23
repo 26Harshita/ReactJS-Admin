@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import FilterListRoundedIcon from '@material-ui/icons/FilterListRounded';
-import Search from '@material-ui/icons/SearchRounded';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import FilterListRoundedIcon from "@material-ui/icons/FilterListRounded";
+import Search from "@material-ui/icons/SearchRounded";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const Customer = (props) => (
   <tr>
     <td style={{ border: "1px double grey", textAlign: "center" }}>
-      <input
-        type="checkbox"
-      />
+      <input type="checkbox" />
     </td>
     <td
       style={{
@@ -34,6 +32,14 @@ const Customer = (props) => (
         textAlign: "center",
       }}
     >
+      {props.customer.purchaseliveclassname}
+    </td>
+    <td
+      style={{
+        border: "1px double grey",
+        textAlign: "center",
+      }}
+    >
       {props.customer.price}
     </td>
     <td
@@ -42,96 +48,84 @@ const Customer = (props) => (
         textAlign: "center",
       }}
     >
-      {props.customer.amount}
-    </td>
-    <td
-      style={{
-        border: "1px double grey",
-        textAlign: "center",
-      }}
-    >
-      {props.customer.paymentmethod}
-    </td>
-    <td
-      style={{
-        border: "1px double grey",
-        textAlign: "center",
-      }}
-    >
-      {props.customer.paymentstatus}
+      {props.customer.purchasedate}
     </td>
   </tr>
 );
 
-export default class CustomersList extends Component {
+export default class PaymentLiveClass extends Component {
   constructor(props) {
     super(props);
 
-    this.deleteCustomer = this.deleteCustomer.bind(this)
-    
-    this.deleteCustomer = this.deleteCustomer.bind(this)
+    this.deleteCustomer = this.deleteCustomer.bind(this);
+
+    this.deleteCustomer = this.deleteCustomer.bind(this);
     this.onChangepaymentid = this.onChangepaymentid.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      paymentid:'',
-      customers: []
+      paymentid: "",
+      customers: [],
     };
   }
 
-   
-    
-    
-  
-  
-
   componentDidMount() {
-    axios.post('https://mitnessnew.herokuapp.com/payments/')
-      .then(response => {
-        this.setState({ customers: response.data })
+    axios
+      .post("https://mitnessnew.herokuapp.com/payments/")
+      .then((response) => {
+        this.setState({ customers: response.data });
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
   }
   onChangepaymentid(e) {
     this.setState({
-      paymentid: e.target.value
-    })
+      paymentid: e.target.value,
+    });
   }
   onSubmit(e) {
     e.preventDefault();
 
     const customer = {
-      paymentid: this.state.paymentid
-    }
-    axios.post('https://mitnessnew.herokuapp.com/payments/search', customer)
-      .then(res => {
-        this.setState({ customers: res.data })
+      paymentid: this.state.paymentid,
+    };
+    axios
+      .post("https://mitnessnew.herokuapp.com/payments/search", customer)
+      .then((res) => {
+        this.setState({ customers: res.data });
       })
       .catch((error) => {
-             console.log(error);
-           })
-      
+        console.log(error);
+      });
   }
 
   deleteCustomer(id) {
-    axios.delete('https://mitnessnew.herokuapp.com/payments/'+id)
-      .then(response => { console.log(response.data)});
+    axios
+      .delete("https://mitnessnew.herokuapp.com/payments/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
 
     this.setState({
-      customers: this.state.customers.filter(el => el._id !== id)
-    })
+      customers: this.state.customers.filter((el) => el._id !== id),
+    });
   }
 
   customerList() {
-    this.state.customers.sort(function(a,b){
-        if(a.paymentid.toLowerCase() < b.paymentid.toLowerCase()) return -1;
-        if(a.paymentid.toLowerCase() > b.paymentid.toLowerCase()) return 1;
-        return 0;
-       })
-    return this.state.customers.map(currentcustomer => {
-      return <Customer customer={currentcustomer} deleteCustomer={this.deleteCustomer} key={currentcustomer._id}/>;
-    })
+    this.state.customers.sort(function (a, b) {
+      if (a.paymentid.toLowerCase() < b.paymentid.toLowerCase()) return -1;
+      if (a.paymentid.toLowerCase() > b.paymentid.toLowerCase()) return 1;
+      return 0;
+    });
+    return this.state.customers.map((currentcustomer) => {
+      return (
+        <Customer
+          customer={currentcustomer}
+          deleteCustomer={this.deleteCustomer}
+          key={currentcustomer._id}
+        />
+      );
+    });
   }
 
   render() {
@@ -143,7 +137,7 @@ export default class CustomersList extends Component {
               <div style={{ display: "flex" }}>
                 <div style={{ width: "80%" }}>
                   <h4>
-                    <b>Point Status</b>
+                    <b>Live Class Status</b>
                   </h4>
                 </div>
                 <div style={{ marginTop: "5px" }}>
@@ -164,8 +158,8 @@ export default class CustomersList extends Component {
                     </div>
                   </form>
                 </div>
-              
-              <div style={{ width: "22%" }}>
+
+                <div style={{ width: "22%" }}>
                   <button
                     style={{
                       height: "25",
@@ -179,7 +173,7 @@ export default class CustomersList extends Component {
                   >
                     <DeleteIcon />
                   </button>
-              </div>
+                </div>
               </div>
               <div style={{ overflowX: "scroll" }}>
                 <table className="table" style={{ border: "1px double grey" }}>
@@ -223,7 +217,7 @@ export default class CustomersList extends Component {
                           textAlign: "center",
                         }}
                       >
-                        Price
+                        Purchase Live Class Name
                       </th>
                       <th
                         style={{
@@ -233,7 +227,7 @@ export default class CustomersList extends Component {
                           textAlign: "center",
                         }}
                       >
-                        Purchased Amount
+                        Purchased Price
                       </th>
                       <th
                         style={{
@@ -243,17 +237,7 @@ export default class CustomersList extends Component {
                           textAlign: "center",
                         }}
                       >
-                        Payment Method
-                      </th>
-                      <th
-                        style={{
-                          border: "1px double white",
-                          backgroundColor: "#3d84b8",
-                          color: "white",
-                          textAlign: "center",
-                        }}
-                      >
-                        Payment Status
+                        Purchased Date
                       </th>
                     </tr>
                   </thead>

@@ -20,35 +20,6 @@ const _nav = [
     icon: "cil-puzzle",
   },
 
-  // {
-  //   _tag: "CSidebarNavDropdown",
-  //   name: "USER",
-  //   to: "",
-  //   icon: "cil-group",
-  //   _children: [
-  //     {
-  //       _tag: "CSidebarNavItem",
-  //       name: "Customers",
-  //       to: "/users",
-  //     },
-  //     {
-  //       _tag: "CSidebarNavItem",
-  //       name: "Create Customer",
-  //       to: "/welcome",
-  //     },
-  //     {
-  //       _tag: "CSidebarNavItem",
-  //       name: "Trainers",
-  //       to: "/userrs",
-  //     },
-  //     {
-  //       _tag: "CSidebarNavItem",
-  //       name: "Create Trainer",
-  //       to: "/trainer",
-  //     },
-  //   ],
-  // },
-
   {
     _tag: "CSidebarNavDropdown",
     name: "USER",
@@ -107,73 +78,132 @@ const _nav = [
     ],
   },
 
-  //   {
-  //     _tag: 'CSidebarNavItem',
-  // name: 'PACKAGES',
-  //   to: '/packages',
-  //   icon: 'cil-storage',
-
-  //   },
   {
     _tag: "CSidebarNavDropdown",
-    name: "Program Management",
+    name: "Payment Status",
     to: "",
-    icon: "cil-layers",
+    icon: "cil-dollar",
     _children: [
       {
         _tag: "CSidebarNavDropdown",
-        name: "Program Listing",
+        name: "Point",
         to: "",
         _children: [
           {
             _tag: "CSidebarNavItem",
-            name: "Programs",
-            to: "/Videolisting",
+            name: "Point Status",
+            to: "/Lowerbody",
           },
           {
             _tag: "CSidebarNavItem",
-            name: "New Program",
-            to: "/Newprogram",
+            name: "Set price for points",
+            to: "/PointConversion",
+          },
+        ],
+      },
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Membership",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Membership Status",
+            to: "/MembershipStatus",
           },
           {
             _tag: "CSidebarNavItem",
-            name: "Videolisting",
-            to: "/video",
+            name: "Set Membership Price",
+            to: "/SetMembershipPrice",
           },
-          //   {
-          //   _tag: 'CSidebarNavItem',
-          //   name: 'Subscribe without payment',
-          //   to: '/addvideo',
-          // },
-          // {
-          //   _tag: "CSidebarNavItem",
-          //   name: "Liveclasses",
-          //   to: "/VideoListingg",
-          // },
+        ],
+      },
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Live Class",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Live Class Status",
+            to: "/PaymentLiveClass",
+          },
         ],
       },
     ],
   },
+
   {
     _tag: "CSidebarNavDropdown",
-    name: "Content Management",
+    name: "Exercise Management",
     to: "",
-    icon: "cil-notes",
+    icon: "cil-group",
     _children: [
       {
         _tag: "CSidebarNavItem",
-        name: "FAQ",
-        to: "/FAQ",
+        name: " Main Area Of Workout ",
+        to: "/MainAreaOfWorkout",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Contact us Enquiries",
-        to: "/ContactUs",
+        name: " Equipment ",
+        to: "/Equipment",
       },
       {
         _tag: "CSidebarNavItem",
-        name: "Recommended Programs",
-        to: "/RecommendedPrograms",
+        name: " Category ",
+        to: "/Category",
+      },
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Video",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Video List",
+            to: "/FAQ",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Register Video",
+            to: "/addfaq",
+          },
+        ],
+      },
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Program",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Program List",
+            to: "/NoticeList",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Register Program",
+            to: "/RegisterNotice",
+          },
+        ],
+      },
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Live Class",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Live Class List",
+            to: "/EventList",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Register Live Class",
+            to: "/RegisterEvent",
+          },
+        ],
       },
     ],
   },
@@ -262,6 +292,106 @@ const _nav = [
     ],
   },
 
+  // {
+  //   _tag: "CSidebarNavDropdown",
+  //   name: "USER",
+  //   to: "",
+  //   icon: "cil-group",
+  //   _children: [
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Customers",
+  //       to: "/users",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Create Customer",
+  //       to: "/welcome",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Trainers",
+  //       to: "/userrs",
+  //     },
+  //     {
+  //       _tag: "CSidebarNavItem",
+  //       name: "Create Trainer",
+  //       to: "/trainer",
+  //     },
+  //   ],
+  // },
+
+  //   {
+  //     _tag: 'CSidebarNavItem',
+  // name: 'PACKAGES',
+  //   to: '/packages',
+  //   icon: 'cil-storage',
+
+  //   },
+  {
+    _tag: "CSidebarNavDropdown",
+    name: "Program Management",
+    to: "",
+    icon: "cil-layers",
+    _children: [
+      {
+        _tag: "CSidebarNavDropdown",
+        name: "Program Listing",
+        to: "",
+        _children: [
+          {
+            _tag: "CSidebarNavItem",
+            name: "Programs",
+            to: "/Videolisting",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "New Program",
+            to: "/Newprogram",
+          },
+          {
+            _tag: "CSidebarNavItem",
+            name: "Videolisting",
+            to: "/video",
+          },
+          //   {
+          //   _tag: 'CSidebarNavItem',
+          //   name: 'Subscribe without payment',
+          //   to: '/addvideo',
+          // },
+          // {
+          //   _tag: "CSidebarNavItem",
+          //   name: "Liveclasses",
+          //   to: "/VideoListingg",
+          // },
+        ],
+      },
+    ],
+  },
+  {
+    _tag: "CSidebarNavDropdown",
+    name: "Content Management",
+    to: "",
+    icon: "cil-notes",
+    _children: [
+      {
+        _tag: "CSidebarNavItem",
+        name: "FAQ",
+        to: "/FAQ",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Contact us Enquiries",
+        to: "/ContactUs",
+      },
+      {
+        _tag: "CSidebarNavItem",
+        name: "Recommended Programs",
+        to: "/RecommendedPrograms",
+      },
+    ],
+  },
+
   //   {
   //     _tag: 'CSidebarNavDropdown',
   //   name: ' Category Management ',
@@ -279,7 +409,7 @@ const _nav = [
   // },
   {
     _tag: "CSidebarNavItem",
-    name: " Payment List ",
+    name: " Point Status ",
     to: "/Lowerbody",
     icon: "cil-dollar",
   },
@@ -303,7 +433,7 @@ const _nav = [
   },
   {
     _tag: "CSidebarNavItem",
-    name: " Point Conversion ",
+    name: " Set Price For Points ",
     to: "/PointConversion",
     icon: "cil-dollar",
   },
