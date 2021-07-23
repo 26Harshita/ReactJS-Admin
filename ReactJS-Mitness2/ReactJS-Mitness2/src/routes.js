@@ -62,6 +62,8 @@ const BlockUsers = React.lazy(() => import("./views/users/BlockUsers"));
 const Spam = React.lazy(() => import("./views/users/Spam"));
 const Wallet = React.lazy(() => import("./views/users/Wallet"));
 const CalorieList = React.lazy(() => import("./views/users/CalorieList"));
+const ExVideoList = React.lazy(() => import("./views/users/ExVideoList"));
+const ExRegisterVideo = React.lazy(() => import("./views/users/ExRegisterVideo"));
 const MainAreaOfWorkout = React.lazy(() => import("./views/users/MainAreaOfWorkout"));
 const Equipment = React.lazy(() => import("./views/users/Equipment"));
 const Category = React.lazy(() => import("./views/users/Category"));
@@ -275,6 +277,18 @@ const routes = [
     exact: true,
     name: "MainAreaOfWorkout",
     component: MainAreaOfWorkout,
+  },
+  {
+    path: "/ExVideoList",
+    exact: true,
+    name: "ExVideoList",
+    component: ExVideoList,
+  },
+  {
+    path: "/ExRegisterVideo",
+    exact: true,
+    name: "ExRegisterVideo",
+    component: ExRegisterVideo,
   },
   {
     path: "/Equipment",

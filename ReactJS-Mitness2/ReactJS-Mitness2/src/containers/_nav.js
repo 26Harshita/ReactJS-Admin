@@ -162,12 +162,12 @@ const _nav = [
           {
             _tag: "CSidebarNavItem",
             name: "Video List",
-            to: "/FAQ",
+            to: "/ExVideoList",
           },
           {
             _tag: "CSidebarNavItem",
             name: "Register Video",
-            to: "/addfaq",
+            to: "/ExRegisterVideo",
           },
         ],
       },
@@ -179,12 +179,12 @@ const _nav = [
           {
             _tag: "CSidebarNavItem",
             name: "Program List",
-            to: "/NoticeList",
+            to: "/ProgramList",
           },
           {
             _tag: "CSidebarNavItem",
             name: "Register Program",
-            to: "/RegisterNotice",
+            to: "/RegisterProgram",
           },
         ],
       },
@@ -196,12 +196,12 @@ const _nav = [
           {
             _tag: "CSidebarNavItem",
             name: "Live Class List",
-            to: "/EventList",
+            to: "/ExLiveClass",
           },
           {
             _tag: "CSidebarNavItem",
             name: "Register Live Class",
-            to: "/RegisterEvent",
+            to: "/ExRegisterLiveClass",
           },
         ],
       },
