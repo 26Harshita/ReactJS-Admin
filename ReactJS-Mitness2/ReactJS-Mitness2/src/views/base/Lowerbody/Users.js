@@ -164,8 +164,8 @@ export default class CustomersList extends Component {
                     </div>
                   </form>
                 </div>
-              
-              <div style={{ width: "22%" }}>
+
+                <div style={{ width: "22%" }}>
                   <button
                     style={{
                       height: "25",
@@ -179,8 +179,14 @@ export default class CustomersList extends Component {
                   >
                     <DeleteIcon />
                   </button>
+                </div>
               </div>
-              </div>
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">Sort By</option>
+              </select>
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">View</option>
+              </select>
               <div style={{ overflowX: "scroll" }}>
                 <table className="table" style={{ border: "1px double grey" }}>
                   <thead className="thead-light">

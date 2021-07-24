@@ -136,46 +136,51 @@ export default class CustomersList extends Component {
 
   
     return (
-      
       <div>
-        
         <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <div style={{ display: "flex" }}>
+                <div style={{ width: "80%" }}>
+                  <h4>
+                    <b>FAQ</b>
+                  </h4>
+                </div>
 
+                <div>
+                  <button
+                    className="btn btn-danger btn-sm m-2"
+                    onClick={() => {
+                      this.deleteCustomerByIds();
+                    }}
+                  >
+                    <DeleteIcon />
+                  </button>
+                </div>
 
-
-<div class="row">
-  <div class="col-md">
-
-             <div style={{display:"flex"}}>
-    <div style={{width:"80%"}}><h4><b>FAQ</b></h4></div>
-    
-        
-        <div>
-    <button
-        className="btn btn-danger btn-sm m-2"
-        onClick={() => {
-          this.deleteCustomerByIds();
-        }}
-      >
-        <DeleteIcon/>
-      </button>
-      
-    </div>
-       
-    
-    
-    <div style={{width:"22%"}}><Link to="/addfaq" className="nav-link"><button type="submit" value="AddNewFaq" className="btn btn-success"><AddIcon/></button></Link></div>
-    
-</div>
-        <div style={{overflowX:"scroll",overflowY:"scroll"}}>
-        
-          
-       
-       
-        <table className="table" style={{border:"1px double grey"}}>
-          <thead className="thead-light">
-            <tr>
-            {/* <th>
+                <div style={{ width: "22%" }}>
+                  <Link to="/addfaq" className="nav-link">
+                    <button
+                      type="submit"
+                      value="AddNewFaq"
+                      className="btn btn-success"
+                    >
+                      <AddIcon />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">Sort By</option>
+              </select>
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">View</option>
+              </select>
+              <div style={{ overflowX: "scroll", overflowY: "scroll" }}>
+                <table className="table" style={{ border: "1px double grey" }}>
+                  <thead className="thead-light">
+                    <tr>
+                      {/* <th>
             
               
               <input
@@ -191,27 +196,70 @@ export default class CustomersList extends Component {
                 }}
               />
             </th> */}
-            <th style={{border:"1px double white",width:"5%",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Delete</th>
-              <th style={{border:"1px double white",width:"150px" ,backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Question</th>
-              <th style={{border:"1px double white",width:"150px" ,backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Answer</th>
-              <th style={{border:"1px double white",width:"100px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Status</th>
-              <th style={{border:"1px double white",width:"100px",backgroundColor:"#3d84b8",color:"white",textAlign:"center"}}>Edit</th>
-              
-           
-            </tr>
-            
-          </thead>
-          <tbody>
-            { this.customerList() }
-          </tbody>
-         
-        </table>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "5%",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Delete
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "150px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Question
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "150px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Answer
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "100px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Status
+                      </th>
+                      <th
+                        style={{
+                          border: "1px double white",
+                          width: "100px",
+                          backgroundColor: "#3d84b8",
+                          color: "white",
+                          textAlign: "center",
+                        }}
+                      >
+                        Edit
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>{this.customerList()}</tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-        
       </div>
-    )
+    );
   }
 }

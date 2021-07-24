@@ -268,6 +268,13 @@ export default class CustomersList extends Component {
                 </div>
               </div>
 
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">Sort By</option>
+              </select>
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">View</option>
+              </select>
+
               <div style={{ overflowX: "scroll", overflowY: "scroll" }}>
                 <table className="table" style={{ border: "1px double grey" }}>
                   <thead className="thead-light">

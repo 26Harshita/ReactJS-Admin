@@ -7,7 +7,7 @@ import { Checkbox, Input } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddIcon from "@material-ui/icons/Add";
 
-export default class CustomersList extends Component {
+export default class BadCustomer extends Component {
   constructor(props) {
     super(props);
 
@@ -258,6 +258,13 @@ export default class CustomersList extends Component {
                   </button>
                 </div>
               </div>
+
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">Sort By</option>
+              </select>
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">View</option>
+              </select>
 
               <div style={{ overflowX: "scroll", overflowY: "scroll" }}>
                 <table className="table" style={{ border: "1px double grey" }}>

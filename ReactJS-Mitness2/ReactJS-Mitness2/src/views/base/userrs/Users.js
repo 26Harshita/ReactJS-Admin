@@ -10,7 +10,7 @@ import AddIcon from '@material-ui/icons/Add';
 
 
 
-export default class CustomersList extends Component {
+export default class TrainersList extends Component {
 
   constructor(props) {
     super(props);
@@ -240,7 +240,17 @@ export default class CustomersList extends Component {
                   </form>
                 </div>
 
-                <div style={{width:"9%"}}><Link to="/trainer" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div>
+                <div style={{ width: "9%" }}>
+                  <Link to="/trainer" className="nav-link">
+                    <button
+                      type="submit"
+                      value="AddNewTrainer"
+                      className="btn btn-success"
+                    >
+                      <AddIcon />
+                    </button>
+                  </Link>
+                </div>
                 <div style={{ width: "22%" }}>
                   <button
                     style={{
@@ -256,6 +266,14 @@ export default class CustomersList extends Component {
                   </button>
                 </div>
               </div>
+
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">Sort By</option>
+              </select>
+              <select name="cars" id="cars" style={{ padding: "10px" }}>
+                <option value="volvo">View</option>
+              </select>
+
               <div style={{ overflowX: "scroll", overflowY: "scroll" }}>
                 <table className="table" style={{ border: "1px double grey" }}>
                   <thead className="thead-light">
